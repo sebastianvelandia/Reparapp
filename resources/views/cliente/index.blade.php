@@ -1,4 +1,3 @@
-Mostrar lista de clientes
 <table class="table">
     <thead>
         <tr>
@@ -13,7 +12,9 @@ Mostrar lista de clientes
             <td>{{ $cliente->id }}</td>
             <td>{{ $cliente->nombre }}</td>
             <td>{{ $cliente->telefono }}</td>
-            <td>Editar</td>
+            <td>
+                <a href="{{ url('/cliente/'.$cliente->id.'/edit') }}">Editar</a>
+            </td>
             <td>
                 <form action="{{ url('/cliente/'.$cliente->id) }}" method="post">
                 @csrf
