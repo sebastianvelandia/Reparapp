@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('cliente.create');
 });
 
+Route::get('/agente', function () {
+    return view('agente.create');
+});
+
 // Route::get('/cliente', function () {
 //     return view('cliente.index');
 // });
