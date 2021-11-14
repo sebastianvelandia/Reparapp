@@ -1,4 +1,11 @@
-<a href="{{ url('/cliente/create') }}">Registrar nuevo cliente</a>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
+<a href="{{ url('/cliente/create') }}" class="btn btn-success">Registrar nuevo cliente</a>
+<br>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -14,13 +21,13 @@
             <td>{{ $cliente->nombre }}</td>
             <td>{{ $cliente->telefono }}</td>
             <td>
-                <a href="{{ url('/cliente/'.$cliente->id.'/edit') }}">Editar</a>
+                <a href="{{ url('/cliente/'.$cliente->id.'/edit') }}" class="btn btn-primary">Editar</a>
             </td>
             <td>
                 <form action="{{ url('/cliente/'.$cliente->id) }}" method="post">
                 @csrf
                 {{ method_field('DELETE')}}
-                <input type="submit" onclick="return confirm('¿Esta seguro?')"value="Borrar">
+                <input class="btn btn-danger" type="submit" onclick="return confirm('¿Esta seguro?')"value="Borrar">
 
                 </form>
             </td>
@@ -28,3 +35,5 @@
         @endforeach
     </tbody>
 </table>
+</div>
+@endsection

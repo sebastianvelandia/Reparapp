@@ -36,6 +36,17 @@ class AgenteController extends Controller
      */
     public function store(Request $request)
     {
+        $campos = [
+            'Id'=>'required|integer|max:12',
+            'Nombre'=>'required|string|max:100'
+        ];
+
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
         $datosAgente = request()->except('_token');
         Agente::insert($datosAgente);
         return redirect('agente');
@@ -73,6 +84,17 @@ class AgenteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $campos = [
+            'Id'=>'required|integer|max:12',
+            'Nombre'=>'required|string|max:100'
+        ];
+
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+        
         $datosAgente = request()->except('_token','_method');
         Agente::where('id','=',$id)->update($datosAgente);
         return redirect('agente');

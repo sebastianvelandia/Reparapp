@@ -15,9 +15,18 @@ use App\Http\Controllers\AgenteController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::resource('cliente', ClienteController::class);
+Route::resource('cliente', ClienteController::class)->middleware('auth');
 
-Route::resource('agente', AgenteController::class);
+Route::resource('agente', AgenteController::class)->middleware('auth');
+
+Auth::routes(['register'=>false,'reset'=>false]);
+
+Route::get('/home', [ClienteController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', [ClienteController::class, 'index'])->name('home');
+});
