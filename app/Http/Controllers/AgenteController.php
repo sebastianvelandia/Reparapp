@@ -14,7 +14,8 @@ class AgenteController extends Controller
      */
     public function index()
     {
-        //
+        $datos['agentes']=Agente::simplePaginate();
+        return view('agente.index',$datos);
     }
 
     /**
@@ -24,7 +25,7 @@ class AgenteController extends Controller
      */
     public function create()
     {
-        //
+        return view('agente.create');
     }
 
     /**
@@ -35,7 +36,9 @@ class AgenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosAgente = request()->except('_token');
+        Agente::insert($datosAgente);
+        return redirect('agente');
     }
 
     /**
@@ -55,9 +58,10 @@ class AgenteController extends Controller
      * @param  \App\Models\Agente  $agente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agente $agente)
+    public function edit($id)
     {
-        //
+        $agente = Agente::findOrFail($id);
+        return view('agente.edit', compact('agente'));
     }
 
     /**
@@ -67,9 +71,11 @@ class AgenteController extends Controller
      * @param  \App\Models\Agente  $agente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agente $agente)
+    public function update(Request $request, $id)
     {
-        //
+        $datosAgente = request()->except('_token','_method');
+        Agente::where('id','=',$id)->update($datosAgente);
+        return redirect('agente');
     }
 
     /**
@@ -78,8 +84,9 @@ class AgenteController extends Controller
      * @param  \App\Models\Agente  $agente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agente $agente)
+    public function destroy($id)
     {
-        //
+        Agente::destroy($id);
+        return redirect('agente');
     }
 }

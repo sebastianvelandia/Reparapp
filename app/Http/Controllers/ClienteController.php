@@ -14,7 +14,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $datos['clientes']=Cliente::paginate(5);
+        $datos['clientes']=Cliente::simplePaginate();
         return view('cliente.index',$datos);
     }
 

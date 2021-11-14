@@ -1,6 +1,6 @@
-<h1>{{$modo}} empleado</h1>
+<h1>{{$modo}} cliente</h1>
 
-<label for="Id">Ingrese su nombre</label>
+<label for="Id">Ingrese su id</label>
 <input type="integer" name="Id" value="{{ isset($cliente->id)?$cliente->id:'' }}" id="Id">
 <br>
 <label for="Nombre">Ingrese su nombre</label>

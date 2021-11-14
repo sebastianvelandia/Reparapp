@@ -1,3 +1,4 @@
+<a href="{{ url('/cliente/create') }}">Registrar nuevo cliente</a>
 <table class="table">
     <thead>
         <tr>

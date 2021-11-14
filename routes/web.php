@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AgenteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +15,9 @@ use App\Http\Controllers\ClienteController;
 */
 
 Route::get('/', function () {
-    return view('cliente.create');
+    return view('welcome');
 });
-
-Route::get('/agente', function () {
-    return view('agente.create');
-});
-
-// Route::get('/cliente', function () {
-//     return view('cliente.index');
-// });
-
-// Route::get('/cliente/create',[ClienteController::class,'create']);
 
 Route::resource('cliente', ClienteController::class);
+
+Route::resource('agente', AgenteController::class);
