@@ -2,30 +2,29 @@
 
 @section('content')
 <div class="container">
+
     <div class="container">
-        <h1>Lista de clientes</h1>
-        <a href="{{ url('/cliente/create') }}" class="btn btn-success">Registrar nuevo cliente</a>
+        <h1>Lista de tecnicos</h1>
+        <a href="{{ url('/tecnico/create') }}" class="btn btn-success">Registrar nuevo tecnico</a>
     </div>
     <br>
     <table class="table">
-        <thead class="table-dark">
+        <thead class="table table-dark">
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Telefono</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($clientes as $cliente)
+            @foreach ($tecnicos as $tecnico)
             <tr>
-                <td>{{ $cliente->id }}</td>
-                <td>{{ $cliente->nombre }}</td>
-                <td>{{ $cliente->telefono }}</td>
+                <td>{{ $tecnico->id }}</td>
+                <td>{{ $tecnico->nombre }}</td>
                 <td width="10px">
-                    <a href="{{ url('/cliente/'.$cliente->id.'/edit') }}" class="btn btn-primary">Editar</a>
+                    <a href="{{ url('/tecnico/'.$tecnico->id.'/edit') }}" class="btn btn-primary">Editar</a>
                 </td>
                 <td width="10px">
-                    <form action="{{ url('/cliente/'.$cliente->id) }}" method="post">
+                    <form action="{{ url('/tecnico/'.$tecnico->id) }}" method="post">
                         @csrf
                         {{ method_field('DELETE')}}
                         <input class="btn btn-danger" type="submit" onclick="return confirm('¿Esta seguro?')" value="Borrar">

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\Operador;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class OperadorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $datos['clientes'] = Cliente::simplePaginate();
-        return view('cliente.index', $datos);
+        $datos['operadors'] = Operador::simplePaginate();
+        return view('operador.index', $datos);
     }
 
     /**
@@ -25,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('cliente.create');
+        return view('operador.create');
     }
 
     /**
@@ -48,18 +48,18 @@ class ClienteController extends Controller
 
         $this->validate($request, $campos, $mensaje);
 
-        $datosCliente = request()->except('_token');
-        Cliente::insert($datosCliente);
-        return redirect('cliente');
+        $datosOperador = request()->except('_token');
+        Operador::insert($datosOperador);
+        return redirect('operador');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Operador  $operador
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(Operador $operador)
     {
         //
     }
@@ -67,20 +67,20 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Operador  $operador
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $cliente = Cliente::findOrFail($id);
-        return view('cliente.edit', compact('cliente'));
+        $operador = Operador::findOrFail($id);
+        return view('operador.edit', compact('operador'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Operador  $operador
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -97,20 +97,20 @@ class ClienteController extends Controller
 
         $this->validate($request, $campos, $mensaje);
 
-        $datosCliente = request()->except('_token', '_method');
-        Cliente::where('id', '=', $id)->update($datosCliente);
-        return redirect('cliente');
+        $datosOperador = request()->except('_token', '_method');
+        Operador::where('id', '=', $id)->update($datosOperador);
+        return redirect('operador');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Operador  $operador
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Cliente::destroy($id);
-        return redirect('cliente');
+        Operador::destroy($id);
+        return redirect('operador');
     }
 }
