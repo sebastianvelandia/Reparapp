@@ -19,8 +19,8 @@
     @endif
     
     <div class="form-group">
-        <label for="Nombre">Ingrese el nombre del taller</label>
-        <input class="form-control" type="text" name="Nombre" value="{{ isset($taller->nombre)?$taller->nombre:old('Nombre') }}" id="Nombre">
+        <label for="nombre">Ingrese el nombre del taller</label>
+        <input class="form-control" type="text" name="nombre" value="{{ isset($taller->nombre)?$taller->nombre:old('nombre') }}" id="nombre">
     </div>
 
     <input class="btn btn-success" type="submit" value="{{ $modo }} datos">
