@@ -37,7 +37,7 @@ class TallerController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'Nombre'=>'required|string|max:100'
+            'nombre'=>'required|string|max:100'
         ];
 
         $mensaje=[
