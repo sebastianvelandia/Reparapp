@@ -37,8 +37,8 @@ class CallCenterController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'Nombre'=>'required|string|max:100',
-            'Direccion'=>'required|string|max:100'
+            'nombre'=>'required|string|max:100',
+            'direccion'=>'required|string|max:100'
         ];
 
         $mensaje=[
@@ -85,8 +85,8 @@ class CallCenterController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'Nombre'=>'required|string|max:100',
-            'Direccion'=>'required|string|max:100'
+            'nombre'=>'required|string|max:100',
+            'direccion'=>'required|string|max:100'
         ];
 
         $mensaje=[

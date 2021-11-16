@@ -18,13 +18,13 @@
 
     @endif
     <div class="form-group">
-        <label for="Id">Ingrese su id</label>
-        <input class="form-control" type="integer" name="Id" value="{{ isset($tecnico->id)?$tecnico->id:old('Id') }}" id="Id">
+        <label for="id">Ingrese su id</label>
+        <input class="form-control" type="integer" name="id" value="{{ isset($tecnico->id)?$tecnico->id:old('id') }}" id="id">
     </div>
 
     <div class="form-group">
-        <label for="Nombre">Ingrese su nombre</label>
-        <input class="form-control" type="text" name="Nombre" value="{{ isset($tecnico->nombre)?$tecnico->nombre:old('Nombre') }}" id="Nombre">
+        <label for="nombre">Ingrese su nombre</label>
+        <input class="form-control" type="text" name="nombre" value="{{ isset($tecnico->nombre)?$tecnico->nombre:old('nombre') }}" id="nombre">
     </div>
 
     <input class="btn btn-success" type="submit" value="{{ $modo }} datos">

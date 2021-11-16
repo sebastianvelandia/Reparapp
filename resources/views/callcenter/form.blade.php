@@ -19,13 +19,13 @@
     @endif
     
     <div class="form-group">
-        <label for="Nombre">Ingrese el nombre del Call Center</label>
-        <input class="form-control" type="text" name="Nombre" value="{{ isset($callcenter->nombre)?$callcenter->nombre:old('Nombre') }}" id="Nombre">
+        <label for="nombre">Ingrese el nombre del Call Center</label>
+        <input class="form-control" type="text" name="nombre" value="{{ isset($callcenter->nombre)?$callcenter->nombre:old('nombre') }}" id="nombre">
     </div>
 
     <div class="form-group">
-        <label for="Direccion">Ingrese la direccion del Call Center</label>
-        <input class="form-control" type="text" name="Direccion" value="{{ isset($callcenter->direccion)?$callcenter->direccion:old('Direccion') }}" id="Direccion">
+        <label for="direccion">Ingrese la direccion del Call Center</label>
+        <input class="form-control" type="text" name="direccion" value="{{ isset($callcenter->direccion)?$callcenter->direccion:old('direccion') }}" id="direccion">
     </div>
 
     <input class="btn btn-success" type="submit" value="{{ $modo }} datos">

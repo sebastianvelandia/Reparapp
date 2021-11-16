@@ -18,18 +18,18 @@
     
 @endif
 <div class="form-group">
-<label for="Id">Ingrese su id</label>
-<input class="form-control" type="integer" name="Id" value="{{ isset($cliente->id)?$cliente->id:old('Id') }}" id="Id">
+<label for="id">Ingrese su id</label>
+<input class="form-control" type="integer" name="id" value="{{ isset($cliente->id)?$cliente->id:old('id') }}" id="id">
 </div>
 
 <div class="form-group">
-<label for="Nombre">Ingrese su nombre</label>
-<input class="form-control" type="text" name="Nombre" value="{{ isset($cliente->nombre)?$cliente->nombre:old('Nombre') }}" id="Nombre">
+<label for="nombre">Ingrese su nombre</label>
+<input class="form-control" type="text" name="nombre" value="{{ isset($cliente->nombre)?$cliente->nombre:old('nombre') }}" id="nombre">
 </div>
 
 <div class="form-group">
-<label for="Telefono">Ingrese su telefono</label>
-<input class="form-control" type="text" name="Telefono" value="{{ isset($cliente->telefono)?$cliente->telefono:old('Telefono') }}" id="Telefono">
+<label for="telefono">Ingrese su telefono</label>
+<input class="form-control" type="text" name="telefono" value="{{ isset($cliente->telefono)?$cliente->telefono:old('telefono') }}" id="telefono">
 </div>
 
 <input class="btn btn-success" type="submit" value="{{ $modo }} datos">

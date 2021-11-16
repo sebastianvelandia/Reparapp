@@ -37,8 +37,8 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'Nombre'=>'required|string|max:100',
-            'Averia'=>'required|string'
+            'nombre'=>'required|string|max:100',
+            'averia'=>'required|string'
         ];
 
         $mensaje=[
@@ -85,8 +85,8 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'Nombre'=>'required|string|max:100',
-            'Averia'=>'required|string'
+            'nombre'=>'required|string|max:100',
+            'averia'=>'required|string'
         ];
 
         $mensaje=[

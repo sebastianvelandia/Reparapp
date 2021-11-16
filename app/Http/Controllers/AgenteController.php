@@ -37,8 +37,8 @@ class AgenteController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'Id'=>'required|integer|max:12',
-            'Nombre'=>'required|string|max:100'
+            'id'=>'required|integer|max:12',
+            'nombre'=>'required|string|max:100'
         ];
 
         $mensaje=[
@@ -85,8 +85,8 @@ class AgenteController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'Id'=>'required|integer|max:12',
-            'Nombre'=>'required|string|max:100'
+            'id'=>'required|integer|max:12',
+            'nombre'=>'required|string|max:100'
         ];
 
         $mensaje=[

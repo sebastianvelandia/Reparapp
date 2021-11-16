@@ -19,13 +19,13 @@
     @endif
     
     <div class="form-group">
-        <label for="Nombre">Ingrese nombre del producto</label>
-        <input class="form-control" type="text" name="Nombre" value="{{ isset($producto->nombre)?$producto->nombre:old('Nombre') }}" id="Nombre">
+        <label for="nombre">Ingrese nombre del producto</label>
+        <input class="form-control" type="text" name="nombre" value="{{ isset($producto->nombre)?$producto->nombre:old('nombre') }}" id="nombre">
     </div>
 
     <div class="form-group">
-        <label for="Averia">Ingrese averia del producto</label>
-        <input class="form-control" type="text" name="Averia" value="{{ isset($producto->averia)?$producto->averia:old('Averia') }}" id="Averia">
+        <label for="averia">Ingrese averia del producto</label>
+        <input class="form-control" type="text" name="averia" value="{{ isset($producto->averia)?$producto->averia:old('averia') }}" id="averia">
     </div>
 
     <input class="btn btn-success" type="submit" value="{{ $modo }} datos">
