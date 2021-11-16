@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 
-Auth::routes();
+Auth::routes(['register'=>false,'reset'=>false]);
 
 //['register'=>false,'reset'=>false]
 
