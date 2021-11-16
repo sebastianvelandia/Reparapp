@@ -1,4 +1,4 @@
-<form action="{{  url('/tecnico/'.$agente->id) }}" method="post">
+<form action="{{  url('/tecnico/'.$tecnico->id) }}" method="post">
 
     @csrf
     {{ method_field('PATCH') }}
