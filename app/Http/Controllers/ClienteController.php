@@ -14,8 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $datos['clientes']=Cliente::paginate(5);
-        return view('cliente.index',$datos);
+        $datos['clientes'] = Cliente::simplePaginate();
+        return view('cliente.index', $datos);
     }
 
     /**
@@ -36,6 +36,18 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        $campos = [
+            'Id' => 'required|integer|max:12',
+            'Nombre' => 'required|string|max:100',
+            'Telefono' => 'required|string|max:12'
+        ];
+
+        $mensaje = [
+            'required' => 'El :attribute es requerido',
+        ];
+
+        $this->validate($request, $campos, $mensaje);
+
         $datosCliente = request()->except('_token');
         Cliente::insert($datosCliente);
         return redirect('cliente');
@@ -73,8 +85,20 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datosCliente = request()->except('_token','_method');
-        Cliente::where('id','=',$id)->update($datosCliente);
+        $campos = [
+            'Id' => 'required|integer|max:12',
+            'Nombre' => 'required|string|max:100',
+            'Telefono' => 'required|string|max:12'
+        ];
+
+        $mensaje = [
+            'required' => 'El :attribute es requerido',
+        ];
+
+        $this->validate($request, $campos, $mensaje);
+
+        $datosCliente = request()->except('_token', '_method');
+        Cliente::where('id', '=', $id)->update($datosCliente);
         return redirect('cliente');
     }
 

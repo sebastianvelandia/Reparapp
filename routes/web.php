@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AgenteController;
+use App\Http\Controllers\OperadorController;
+use App\Http\Controllers\TecnicoController;
+use App\Http\Controllers\TallerController;
+use App\Http\Controllers\CallCenterController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +21,30 @@ use App\Http\Controllers\ClienteController;
 */
 
 Route::get('/', function () {
-    return view('cliente.create');
+    return view('auth.login');
 });
 
-Route::get('/agente', function () {
-    return view('agente.create');
+
+Auth::routes();
+
+//['register'=>false,'reset'=>false]
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', [ClienteController::class, 'index'])->name('home');
+    
+    Route::resource('agente', AgenteController::class);
+
+    Route::resource('operador', OperadorController::class);
+
+    Route::resource('tecnico', TecnicoController::class);
+
+    Route::resource('taller', TallerController::class);
+
+    Route::resource('callcenter', CallCenterController::class);
+
+    Route::resource('cliente', ClienteController::class);
+
+    Route::resource('producto', ProductoController::class);
+
 });
-
-// Route::get('/cliente', function () {
-//     return view('cliente.index');
-// });
-
-// Route::get('/cliente/create',[ClienteController::class,'create']);
-
-Route::resource('cliente', ClienteController::class);
