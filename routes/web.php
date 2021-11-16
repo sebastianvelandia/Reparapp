@@ -6,6 +6,9 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AgenteController;
 use App\Http\Controllers\OperadorController;
 use App\Http\Controllers\TecnicoController;
+use App\Http\Controllers\TallerController;
+use App\Http\Controllers\CallCenterController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,19 +24,27 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('cliente', ClienteController::class)->middleware('auth'); 
 
-Route::resource('agente', AgenteController::class)->middleware('auth');
+Auth::routes();
 
-Route::resource('operador', OperadorController::class)->middleware('auth');
-
-Route::resource('tecnico', TecnicoController::class)->middleware('auth');
-
-Auth::routes(['register'=>false,'reset'=>false]);
-
-//Route::get('/home', [ClienteController::class, 'index'])->name('home');
+//['register'=>false,'reset'=>false]
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', [TecnicoController::class, 'index'])->name('home');
+    Route::get('/', [ClienteController::class, 'index'])->name('home');
+    
+    Route::resource('agente', AgenteController::class);
+
+    Route::resource('operador', OperadorController::class);
+
+    Route::resource('tecnico', TecnicoController::class);
+
+    Route::resource('taller', TallerController::class);
+
+    Route::resource('callcenter', CallCenterController::class);
+
+    Route::resource('cliente', ClienteController::class);
+
+    Route::resource('producto', ProductoController::class);
+
 });

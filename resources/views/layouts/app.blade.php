@@ -23,10 +23,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Reparapp
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>                        
+                        </li>
                         @endif
 
                         @if (Route::has('register'))
@@ -54,15 +54,25 @@
                         @else
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('agente.index') }}">{{ __('Agentes') }}</a>
+                                <a class="nav-link" href="{{ route('taller.index') }}">Talleres</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('cliente.index') }}">{{ __('Clientes') }}</a>
+                                <a class="nav-link" href="{{ route('callcenter.index') }}">Call Centers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('operador.index') }}">{{ __('Operadores') }}</a>
+                                <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a>
                             </li>
                         </ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Empleados
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('agente.index') }}">Agentes</a></li>
+                                <li><a class="dropdown-item" href="{{ route('tecnico.index') }}">Tecnicos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('operador.index') }}">Operadores</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
@@ -78,7 +88,7 @@
                                     @csrf
                                 </form>
                             </div>
-                        </li>                        
+                        </li>
                         @endguest
                     </ul>
                 </div>
