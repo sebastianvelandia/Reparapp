@@ -21,7 +21,7 @@ use App\Http\Controllers\ProductoController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('auth.main');
 });
 
 
@@ -31,7 +31,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', [ClienteController::class, 'index'])->name('home');
+    //Route::get('/', [ClienteController::class, 'index'])->name('home');
     
     Route::resource('agente', AgenteController::class);
 
