@@ -9,6 +9,7 @@ use App\Http\Controllers\TecnicoController;
 use App\Http\Controllers\TallerController;
 use App\Http\Controllers\CallCenterController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 
     //Route::get('/', [ClienteController::class, 'index'])->name('home');
+
+    Route::resource('user', UserController::class);
     
     Route::resource('agente', AgenteController::class);
 
