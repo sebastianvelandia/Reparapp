@@ -53,6 +53,7 @@
                         @endif
                         @else
                         <ul class="navbar-nav mr-auto">
+                            @can('user.index')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('taller.index') }}">Talleres</a>
                             </li>
@@ -60,21 +61,16 @@
                                 <a class="nav-link" href="{{ route('callcenter.index') }}">Call Centers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a>
+                                <a class="nav-link" href="{{ route('user.index') }}">Empleados</a>
                             </li>
+                            @endcan
+                            @can('orden.index')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('orden.index') }}">Ordenes</a>
+                            </li>
+                            @endcan
                         </ul>
-                        @can('agente.index')
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Empleados
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('agente.index') }}">Agentes</a></li>
-                                <li><a class="dropdown-item" href="{{ route('tecnico.index') }}">Tecnicos</a></li>
-                                <li><a class="dropdown-item" href="{{ route('operador.index') }}">Operadores</a></li>
-                            </ul>
-                        </li>
-                        @endcan
+                        
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

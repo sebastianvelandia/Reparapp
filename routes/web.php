@@ -10,6 +10,7 @@ use App\Http\Controllers\TallerController;
 use App\Http\Controllers\CallCenterController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrdenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,12 +36,14 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::get('/', [ClienteController::class, 'index'])->name('home');
 
     Route::resource('user', UserController::class);
+
+    Route::resource('orden', OrdenController::class);
     
-    Route::resource('agente', AgenteController::class);
+    // Route::resource('agente', AgenteController::class);
 
-    Route::resource('operador', OperadorController::class);
+    // Route::resource('operador', OperadorController::class);
 
-    Route::resource('tecnico', TecnicoController::class);
+    // Route::resource('tecnico', TecnicoController::class);
 
     Route::resource('taller', TallerController::class);
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-    <h1>{{$modo}} agente</h1>
+    <h1>{{$modo}} usuario</h1>
 
     @if (count($errors)>0)
 
@@ -17,18 +17,27 @@
     </div>
 
     @endif
-    <div class="form-group">
-        <label for="id">Ingrese su id</label>
-        <input class="form-control" type="integer" name="id" value="{{ isset($agente->id)?$agente->id:old('id') }}" id="id">
-    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="h5">Nombre:</p>
+            <p class="form-control">{{$user->name}}</p>
 
-    <div class="form-group">
-        <label for="nombre">Ingrese su nombre</label>
-        <input class="form-control" type="text" name="nombre" value="{{ isset($agente->nombre)?$agente->nombre:old('nombre') }}" id="nombre">
-    </div>
+            <p class="h5">Lista de roles:</p>
+            {!! Form::model($user, ['route'=>['user.update', $user], 'method'=>'put']) !!}
+            @foreach ($roles as $role)
+            <div>
+                <label>
+                    {!! Form::checkbox('roles', $role->id, null, ['class'=>'mr-1']) !!}
+                    {{$role->name}}
+                </label>
+            </div>
+            @endforeach
 
-    <input class="btn btn-success" type="submit" value="{{ $modo }} datos">
-    <a class="btn btn-danger" href="{{ url('agente/') }}">Regresar</a>
+            {!! Form::submit('Asignar rol', ['class'=>'btn btn-success']) !!}
+            <a class="btn btn-danger" href="{{ url('user/') }}">Regresar</a>
+            {!! Form::close() !!}
+        </div>
+    </div>
 
 </div>
 @endsection

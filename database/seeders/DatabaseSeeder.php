@@ -13,13 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $usuario=new User();
-        // $usuario -> name="Administrador Reparapp";
-        // $usuario -> email="admin@gmail.com";
-        // $usuario -> password= bcrypt("12345678");
-
-        // $usuario -> save();
-
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         

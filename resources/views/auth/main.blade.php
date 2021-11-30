@@ -51,6 +51,7 @@
         @endif
         @else
         <ul class="navbar-nav mr-auto">
+          @can('user.index')
           <li class="nav-item">
             <a class="nav-link" href="{{ route('taller.index') }}">Talleres</a>
           </li>
@@ -58,22 +59,16 @@
             <a class="nav-link" href="{{ route('callcenter.index') }}">Call Centers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a>
+            <a class="nav-link" href="{{ route('user.index') }}">Empleados</a>
           </li>
+          @endcan
+          @can('orden.index')
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('orden.index') }}">Ordenes</a>
+          </li>
+          @endcan
         </ul>
-        @can('agente.index')
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            Empleados
-          </a>
-          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('agente.index') }}">Agentes</a></li>
-            <li><a class="dropdown-item" href="{{ route('tecnico.index') }}">Tecnicos</a></li>
-            <li><a class="dropdown-item" href="{{ route('operador.index') }}">Operadores</a></li>
-            <li><a class="dropdown-item" href="{{ route('user.index') }}">Usuarios</a></li>
-          </ul>
-        </li>
-        @endcan
+
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }}
@@ -98,13 +93,23 @@
 </nav>
 
 <body>
+  <h1 class="text-center">
+    Reparación de electrodomésticos en Armenia
+  </h1>
   <div>
     <img src="/images/reparacion-de-electrodomesticos.png" alt="Reparapp" width="100%" height="50%" class="bg-image">
   </div>
 </body>
+<footer class="footer bg-dark text-light">
+  <div class="container mb-2">
+    <p class="text-center h4">
+      Reparación de electrodomésticos a domicilio en Armenia. Arreglo de electrodomésticos tales como: Neveras, Lavadoras, Calentadores, Televisores, Nevecones, Estufas en Bogotá. Contamos con servicio técnico en marcas como Samsung, LG, Haceb, Whirlpool, Centrales, Electrolux, Frigidaire, Mabe, General Electric, entre otras.
 
-<footer>
+      En Centros de Servicio contamos con personal altamente capacitado para brindar un servicio de calidad, 100% garantizado y con repuestos originales para mantenimiento y reparación de electrodomésticos en Medellín.
 
+      Realizamos mantenimiento preventivo y soporte correctivo de las principales marcas de electrodomésticos usadas en Colombia con personal técnico idóneo para atender profesionalmente sugerencias y servicio técnico especializado para atender las necesidades de nuestros clientes.
+    </p>
+  </div>
 </footer>
 
 </html>
