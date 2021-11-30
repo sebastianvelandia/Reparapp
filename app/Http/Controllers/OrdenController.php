@@ -99,7 +99,7 @@ class OrdenController extends Controller
 
         $this->validate($request,$campos,$mensaje);
 
-        $datosOrden = request()->except('_token');
+        $datosOrden = request()->except('_token','_method');
         Orden::where('id','=',$id)->update($datosOrden);
         return redirect('orden');
     }
