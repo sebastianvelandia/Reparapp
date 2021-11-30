@@ -24,7 +24,7 @@
             <option selected >{{ isset($orden->estado)?$orden->estado:old('estado') }}</option>
             <option value="Reparada">Reparada</option>
             <option value="Recepcionada">Recepcionada</option>
-            <option value="En reparacion">En reparacion</option>
+            <option value="En Reparacion">En Reparacion</option>
             <option value="Informada">Informada</option>
             <option value="Cerrada">Cerrada</option>
         </select>
