@@ -101,15 +101,18 @@
   </div>
 </body>
 <footer class="footer bg-dark text-light">
-  <div class="container mb-2">
-    <p class="text-center h4">
-      Reparación de electrodomésticos a domicilio en Armenia. Arreglo de electrodomésticos tales como: Neveras, Lavadoras, Calentadores, Televisores, Nevecones, Estufas en Bogotá. Contamos con servicio técnico en marcas como Samsung, LG, Haceb, Whirlpool, Centrales, Electrolux, Frigidaire, Mabe, General Electric, entre otras.
+  <div class="container-fluid bg-dark text-center p-3">
+    <p class="small"></p>
+
+    Reparación de electrodomésticos a domicilio en Armenia. Arreglo de electrodomésticos tales como: Neveras, Lavadoras, Calentadores, Televisores, Nevecones, Estufas en Bogotá. Contamos con servicio técnico en marcas como Samsung, LG, Haceb, Whirlpool, Centrales, Electrolux, Frigidaire, Mabe, General Electric, entre otras.
 
       En Centros de Servicio contamos con personal altamente capacitado para brindar un servicio de calidad, 100% garantizado y con repuestos originales para mantenimiento y reparación de electrodomésticos en Medellín.
 
       Realizamos mantenimiento preventivo y soporte correctivo de las principales marcas de electrodomésticos usadas en Colombia con personal técnico idóneo para atender profesionalmente sugerencias y servicio técnico especializado para atender las necesidades de nuestros clientes.
-    </p>
+
   </div>
+  
+
 </footer>
 
 </html>
