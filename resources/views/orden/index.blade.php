@@ -26,9 +26,11 @@
                 <td>{{ $orden->observaciones }}</td>
                 <td>{{ $orden->producto }}</td>
                 <td>{{ $orden->averia }}</td>
+                @can('orden.edit')
                 <td width="10px">
                     <a href="{{ url('/orden/'.$orden->id.'/edit') }}" class="btn btn-primary">Editar</a>
                 </td>
+                @endcan
                 <td width="10px">
                     <form action="{{ url('/orden/'.$orden->id) }}" method="post">
                         @csrf
