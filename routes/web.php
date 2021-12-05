@@ -27,7 +27,20 @@ Route::get('/', function () {
 });
 
 
+Route::resource('orden', OrdenController::class,[
+    'names' => [
+        'index' => 'orden.index',
+        'edit' => 'orden.edit',
+        'create' => 'orden.create',
+        'consultar' => 'orden.consultar',
+    ],
+]);
+
+Route::get('/orden/consultar', [OrdenController::class, 'consultar']);
+
 Auth::routes();
+
+
 
 //['register'=>false,'reset'=>false]
 
@@ -36,8 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::get('/', [ClienteController::class, 'index'])->name('home');
 
     Route::resource('user', UserController::class);
-
-    Route::resource('orden', OrdenController::class);
     
     // Route::resource('agente', AgenteController::class);
 

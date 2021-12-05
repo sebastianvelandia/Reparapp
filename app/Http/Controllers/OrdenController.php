@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orden;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class OrdenController extends Controller
 {
@@ -29,6 +30,16 @@ class OrdenController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function consultar()
+    {
+        return view('orden.consultar');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -44,7 +55,7 @@ class OrdenController extends Controller
         ];
 
         $mensaje=[
-            'required'=>'El :attribute es requerido',
+            'required'=>'El :attributo es requerido',
         ];
 
         $this->validate($request,$campos,$mensaje);
@@ -60,9 +71,10 @@ class OrdenController extends Controller
      * @param  \App\Models\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function show(Orden $orden)
+    public function show($id)
     {
-        //
+        $orden = Orden::findOrFail($id);
+        return view('orden.ordenConsultada', compact('orden'));
     }
 
     /**
@@ -115,4 +127,5 @@ class OrdenController extends Controller
         Orden::destroy($id);
         return redirect('orden');
     }
+
 }

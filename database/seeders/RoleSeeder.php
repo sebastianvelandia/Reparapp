@@ -35,9 +35,9 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'callcenter.destroy'])->assignRole($role1);
 
         Permission::create(['name' => 'orden.index'])->syncRoles([$role1,$role2,$role3,$role4]);
-        Permission::create(['name' => 'orden.create'])->syncRoles([$role1,$role2,$role3,$role4]);
-        Permission::create(['name' => 'orden.edit'])->syncRoles([$role1,$role2,$role3,$role4]);
-        Permission::create(['name' => 'orden.destroy'])->syncRoles([$role1,$role2,$role3,$role4]);
+        Permission::create(['name' => 'orden.create'])->syncRoles([$role1,$role2,$role4]);
+        Permission::create(['name' => 'orden.edit'])->syncRoles([$role1,$role2,$role4]);
+        Permission::create(['name' => 'orden.destroy'])->syncRoles([$role1,$role2,$role4]);
 
     }
 }
