@@ -15,8 +15,8 @@ class OrdenController extends Controller
      */
     public function index()
     {
-        $datos['ordens']=Orden::simplePaginate();
-        return view('orden.index',$datos);
+        $datos['ordens'] = Orden::simplePaginate();
+        return view('orden.index', $datos);
     }
 
     /**
@@ -48,17 +48,17 @@ class OrdenController extends Controller
     public function store(Request $request)
     {
         $campos = [
-            'estado'=>'required',
-            'observaciones'=>'required|string',
-            'producto'=>'required|string|max:100',
-            'averia'=>'required|string'
+            'estado' => 'required',
+            'observaciones' => 'required|string',
+            'producto' => 'required|string|max:100',
+            'averia' => 'required|string'
         ];
 
-        $mensaje=[
-            'required'=>'El :attributo es requerido',
+        $mensaje = [
+            'required' => 'El :attributo es requerido',
         ];
 
-        $this->validate($request,$campos,$mensaje);
+        $this->validate($request, $campos, $mensaje);
 
         $datosOrden = request()->except('_token');
         Orden::insert($datosOrden);
@@ -71,10 +71,15 @@ class OrdenController extends Controller
      * @param  \App\Models\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $orden = Orden::findOrFail($id);
-        return view('orden.ordenConsultada', compact('orden'));
+        $id = $request->input('id');
+        $orden = Orden::find($id);
+        if ($orden == "") {
+            return redirect('/orden/consultar')->with('info', 'No existe una orden con el ID ingresado');
+        } else {
+            return view('orden.ordenConsultada', compact('orden'));
+        }
     }
 
     /**
@@ -99,20 +104,20 @@ class OrdenController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'estado'=>'required',
-            'observaciones'=>'required|string',
-            'producto'=>'required|string|max:100',
-            'averia'=>'required|string'
+            'estado' => 'required',
+            'observaciones' => 'required|string',
+            'producto' => 'required|string|max:100',
+            'averia' => 'required|string'
         ];
 
-        $mensaje=[
-            'required'=>'El :attribute es requerido',
+        $mensaje = [
+            'required' => 'El :attribute es requerido',
         ];
 
-        $this->validate($request,$campos,$mensaje);
+        $this->validate($request, $campos, $mensaje);
 
-        $datosOrden = request()->except('_token','_method');
-        Orden::where('id','=',$id)->update($datosOrden);
+        $datosOrden = request()->except('_token', '_method');
+        Orden::where('id', '=', $id)->update($datosOrden);
         return redirect('orden');
     }
 
@@ -127,5 +132,4 @@ class OrdenController extends Controller
         Orden::destroy($id);
         return redirect('orden');
     }
-
 }

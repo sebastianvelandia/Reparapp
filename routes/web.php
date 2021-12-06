@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\AgenteController;
-use App\Http\Controllers\OperadorController;
-use App\Http\Controllers\TecnicoController;
 use App\Http\Controllers\TallerController;
 use App\Http\Controllers\CallCenterController;
 use App\Http\Controllers\ProductoController;
@@ -26,35 +23,19 @@ Route::get('/', function () {
     return view('auth.main');
 });
 
-
-Route::resource('orden', OrdenController::class,[
-    'names' => [
-        'index' => 'orden.index',
-        'edit' => 'orden.edit',
-        'create' => 'orden.create',
-        'consultar' => 'orden.consultar',
-    ],
-]);
-
-Route::get('/orden/consultar', [OrdenController::class, 'consultar']);
+Route::get('/orden/consultar', function () {
+    return view('orden.consultar');
+});
 
 Auth::routes();
-
-
-
-//['register'=>false,'reset'=>false]
 
 Route::group(['middleware' => 'auth'], function () {
 
     //Route::get('/', [ClienteController::class, 'index'])->name('home');
 
     Route::resource('user', UserController::class);
-    
-    // Route::resource('agente', AgenteController::class);
-
-    // Route::resource('operador', OperadorController::class);
-
-    // Route::resource('tecnico', TecnicoController::class);
+ 
+    Route::resource('orden', OrdenController::class);
 
     Route::resource('taller', TallerController::class);
 

@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Reparapp
+                    ReparApp
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -53,6 +53,9 @@
                         @endif
                         @else
                         <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/orden/consultar') }}">Consultar Orden</a>
+                            </li>
                             @can('user.index')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('taller.index') }}">Talleres</a>
@@ -70,7 +73,7 @@
                             </li>
                             @endcan
                         </ul>
-                        
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
