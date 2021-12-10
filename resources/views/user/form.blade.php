@@ -24,14 +24,8 @@
 
             <p class="h5">Lista de roles:</p>
             {!! Form::model($user, ['route'=>['user.update', $user], 'method'=>'put']) !!}
-            @foreach ($roles as $role)
-            <div>
-                <label>
-                    {!! Form::checkbox('roles', $role->id, null, ['class'=>'mr-1']) !!}
-                    {{$role->name}}
-                </label>
-            </div>
-            @endforeach
+         
+            {!! Form::select('rol', $array, $roleID) !!}
 
             {!! Form::submit('Asignar rol', ['class'=>'btn btn-success']) !!}
             <a class="btn btn-danger" href="{{ url('user/') }}">Regresar</a>

@@ -60,7 +60,20 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('user.edit', compact('user','roles'));
+        $array = array();
+        foreach ($roles as $role){
+            $array[$role->id] = "$role->name";
+        }
+        if ($user->hasRole('Admin')) {
+            $roleID = '1';
+        }elseif ($user->hasRole('Agente')) {
+            $roleID = '2';
+        }elseif ($user->hasRole('Tecnico')) {
+            $roleID = '3';
+        }else {
+            $roleID = '4';
+        }
+        return view('user.edit', compact('user','array','roleID'));
     }
 
     /**
@@ -72,7 +85,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->roles()->sync($request->roles);
+        $user->roles()->sync($request->rol);
         return redirect('user');
     }
 
